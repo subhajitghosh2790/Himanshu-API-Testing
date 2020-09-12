@@ -21,6 +21,7 @@ import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.testng.Assert;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -112,7 +113,9 @@ public class HTTP_Methods {
 
             System.out.println("Body Subhajit is -->"+jsonObject.toJSONString());
             // System.out.println("Reached response body method");
-            Assert.assertEquals(matchesJsonSchema(jsonObject.toJSONString()), response.getBody().asString());
+            //Assert.assertEquals(matchesJsonSchema(jsonObject.toJSONString()), response.getBody().asString());
+            Assert.assertTrue(response.getBody().asString().matches(jsonObject.toJSONString()));
+           assertThat(response.getBody().asString(), matchesJsonSchema(".\\src\\test\\java\\Schemas\\GET.json"));
             // System.out.println("Completed response body method");
         } catch (final Exception e) {
         }
