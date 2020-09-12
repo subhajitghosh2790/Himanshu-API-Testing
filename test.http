@@ -1,0 +1,1 @@
+POST  https://qa.api.firstdata.com/ipp/payments-gateway/v2/authentication/access-tokens HTTP/1.1

@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "e51789ca-33ce-4388-9b44-9a1dcd35c972",
+		"name": "IPP-Boarding-API-V2 copy",
+		"description": "https://test.api.firstdata.com/ipp/v2/boarding/**",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Current APIs",
+			"item": [
+				{
+					"name": "1_NewMerchantOrderPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5e44d4da-069c-4bba-a913-6a4953dbce9a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.globals.set(\"orders_id\", pm.response.text());",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "77e8260e-438c-4c3f-9716-01b77bcda394",
+								"exec": [
+									"pm.globals.set(\"url\", \"https://qa.api.firstdata.com/\");",
+									"pm.globals.set(\"base_path\", \"ipp/v2/boarding\");",
+									"pm.globals.set(\"AppKey\", \"p7LMi7ikvAuQshRU3lIwAr5oV1kBQdmW\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"agentBankCode\": \"09910001\",\n    \"allianceCode\": \"EMS\",\n    \"applicationRefNum\": \"321230051\",\n    \"applicationTypeCode\": \"NM\",\n    \"appStatusCode\": \"O\",\n    \"businessEntity\": {\n        \"businessType\": null,\n        \"bussinessRegistrationNumber\": \"1122003344\",\n        \"contacts\": [\n            {\n                \"addressFrom\": \"2019-01-01\",\n                \"addressOwnshpType\": \"O\",\n                \"addressTo\": \"2020-12-01\",\n                \"alternativePhoneNumber\": \"0012124545789\",\n                \"billTo\": \"Testing Corp.\",\n                \"city\": \"Whitton\",\n                \"contactFirstName\": \"Lester\",\n                \"contactJobTitle\": \"Tester\",\n                \"contactLastName\": \"Luthor\",\n                \"contactSecondName\": \"Lex\",\n                \"contactTitle\": \"Mr.\",\n                \"contactType\": \"L\",\n                \"countryCode\": \"528\",\n                \"county\": \"Amsterdam\",\n                \"emailAddress\": \"lester.l.luthor@test-mail.co.uk\",\n                \"faxNumber\": \"123456120123\",\n                \"flatName\": \"Lester Home\",\n                \"homeTelephoneNumber\": \"004403456044444\",\n                \"houseName\": \"L House\",\n                \"houseNumber\": \"813\",\n                \"leaseExpire\": \"2020-01-18\",\n                \"locality\": \"Cambridge\",\n                \"premisesRentedFlag\": true,\n                \"rentedSince\": \"2019-01-18\",\n                \"shipTo\": \"Aumonier\",\n                \"stateCode\": \"NL\",\n                \"streetLine1\": \"Test Street\",\n                \"streetLine2\": \"Anfield\",\n                \"streetLine3\": \"Line 3 asdf\",\n                \"telephoneExtension\": \"+44\",\n                \"telephoneNumber\": \"+441234567890\",\n                \"webAddress\": \"www.lester-test.com\",\n                \"zipCode\": \"1071JA\"\n            }\n        ],\n        \"contractDate\": \"2019-11-30\",\n        \"crmAccountId\": null,\n        \"crmContactId\": null,\n        \"mccIso\": \"5039\",\n        \"merchantLanguage\": \"NL\",\n        \"name\": \"EMS mega business\",\n        \"outlets\": [\n            {\n                \"acquiringOffer\": {\n                    \"acquiringOfferingExternalId\": \"ACO3E-776B8-C5062-8FC2B-BCF18-734FA-897BF\",\n                    \"postingTariffId\": \"039\",\n                    \"serviceCharges\": [\n                        {\n                            \"feeBase\": 4,\n                            \"feeMax\": null,\n                            \"feeMin\": null,\n                            \"serviceChargeItemExternalId\": \"SCI7F-CD9F6-E7D44-0C836-7ABA2-E29B5-EDCB5\"\n                        }\n                    ],\n                    \"settlementMethodId\": \"174\",\n                    \"transactionCharges\": [\n                        {\n                            \"feeBase\": 4,\n                            \"feeMax\": null,\n                            \"feeMin\": null,\n                            \"transactionChargeItemExternalId\": \"TCID8-D3653-759F7-521DE-F8CCD-51AF9-9558A\"\n                        }\n                    ]\n                },\n                \"annualAltPmntTurnover\": 0,\n                \"annualCardTurnover\": 12500,\n                \"annualCreditTurnover\": 0,\n                \"annualDebitTurnover\": 0,\n                \"annualTurnover\": 12500,\n                \"autoRenewalFlag\": false,\n                \"avgGoodsReturnedPerc\": 0,\n                \"b2bPmntPerc\": 0,\n                \"b2bSale\": 0,\n                \"bankAccounts\": [\n                    {\n                        \"accountHolderName\": \"Francis Bacon\",\n                        \"accountType\": \"Payment Account Retail\",\n                        \"accountTypeSysId\": \"170\",\n                        \"bankAccountCurrency\": \"EUR\",\n                        \"bankAccountName\": \"bankAccountName3\",\n                        \"bankAccountNumber\": \"16354486\",\n                        \"bankAccountRef\": null,\n                        \"bankAccountStatus\": null,\n                        \"bankAddress\": \"Bank Street 4\",\n                        \"bankCity\": \"Gloucester\",\n                        \"bankCountryCode\": \"528\",\n                        \"bankingAccountManagerName\": \"Account Manager3\",\n                        \"bankName\": \"Test Bank3\",\n                        \"bankPhoneNumber\": \"1234567890\",\n                        \"bankSortCode\": \"123456\",\n                        \"daysCredit\": \"1\",\n                        \"daysDebit\": \"1\",\n                        \"iban\": \"NL66RABO0354446373\",\n                        \"swift\": \"RABONL2U\"\n                    },\n                    {\n                        \"accountHolderName\": \"Manual Adjustments hld\",\n                        \"accountType\": \"Manual Adjustments\",\n                        \"accountTypeSysId\": \"077\",\n                        \"bankAccountCurrency\": \"EUR\",\n                        \"bankAccountNumber\": null,\n                        \"bankCountryCode\": \"528\",\n                        \"bankSortCode\": null,\n                        \"daysCredit\": 1,\n                        \"daysDebit\": 2,\n                        \"iban\": \"GB46BUKB20041538290008\",\n                        \"swift\": \"BUKBGB22\"\n                    },\n                    {\n                        \"accountHolderName\": \"Merchant Hold Account hld\",\n                        \"accountType\": \"Merchant Hold Account\",\n                        \"accountTypeSysId\": \"189\",\n                        \"bankAccountCurrency\": \"EUR\",\n                        \"bankAccountNumber\": null,\n                        \"bankCountryCode\": \"528\",\n                        \"bankSortCode\": null,\n                        \"daysCredit\": 1,\n                        \"daysDebit\": 2,\n                        \"iban\": \"GB46BUKB20041538290008\",\n                        \"swift\": \"BUKBGB22\"\n                    }\n                ],\n                \"bankingWindow\": null,\n                \"businessCatCode\": \"RT\",\n                \"businessType\": \"R\",\n                \"clientRegion\": \"By Transaction\",\n                \"clientRegionSysId\": \"1.0\",\n                \"contacts\": [\n                    {\n                        \"addressFrom\": \"2019-02-01\",\n                        \"addressOwnshpType\": \"O\",\n                        \"addressTo\": \"2020-12-02\",\n                        \"alternativePhoneNumber\": \"0012124545789\",\n                        \"billTo\": \"Testing Corp.\",\n                        \"city\": \"Brighton\",\n                        \"contactFirstName\": \"Otto\",\n                        \"contactJobTitle\": \"Other stuff\",\n                        \"contactLastName\": \"Otter\",\n                        \"contactSecondName\": null,\n                        \"contactTitle\": \"Bc.\",\n                        \"contactType\": \"OT\",\n                        \"countryCode\": \"528\",\n                        \"county\": \"Manchester\",\n                        \"emailAddress\": \"otto.o@test-mail.co.uk\",\n                        \"faxNumber\": \"123499990123\",\n                        \"flatName\": \"Otter Home\",\n                        \"homeTelephoneNumber\": \"004403456044444\",\n                        \"houseName\": \"OT House\",\n                        \"houseNumber\": \"813\",\n                        \"leaseExpire\": \"2020-01-18\",\n                        \"locality\": \"Cambridge\",\n                        \"premisesRentedFlag\": true,\n                        \"rentedSince\": \"2019-01-18\",\n                        \"shipTo\": \"Somewhere\",\n                        \"stateCode\": \"GB\",\n                        \"streetLine1\": \"Test Street\",\n                        \"streetLine2\": \"Blufield\",\n                        \"streetLine3\": \"Line 3 qwert\",\n                        \"telephoneExtension\": \"+44\",\n                        \"telephoneNumber\": \"+441234567890\",\n                        \"webAddress\": \"www.otter-test.com\",\n                        \"zipCode\": \"TW27LD\"\n                    },\n                    {\n                        \"addressFrom\": \"2017-02-02\",\n                        \"addressOwnshpType\": \"R\",\n                        \"addressTo\": \"2018-12-02\",\n                        \"alternativePhoneNumber\": \"1234567890123O\",\n                        \"billTo\": \"Harriet Arbuthnot\",\n                        \"city\": \"Braemar\",\n                        \"contactFirstName\": \"Sassan\",\n                        \"contactJobTitle\": \"Scholar\",\n                        \"contactLastName\": \"Tester\",\n                        \"contactSecondName\": \"Idlib\",\n                        \"contactTitle\": \"Sr.\",\n                        \"contactType\": \"S\",\n                        \"countryCode\": \"528\",\n                        \"county\": \"Sheffield\",\n                        \"emailAddress\": \"123@abc-test.com\",\n                        \"faxNumber\": \"00000000000\",\n                        \"flatName\": \"Odeon\",\n                        \"homeTelephoneNumber\": \"00000000000\",\n                        \"houseName\": \"Cosmo\",\n                        \"houseNumber\": \"123\",\n                        \"leaseExpire\": \"2019-01-18\",\n                        \"locality\": \"Paradise Square\",\n                        \"premisesRentedFlag\": true,\n                        \"rentedSince\": \"2019-01-18\",\n                        \"shipTo\": \"Robert Armin\",\n                        \"stateCode\": \"GB\",\n                        \"statusCode\": \"A\",\n                        \"streetLine1\": \"Dixon\",\n                        \"streetLine2\": \"Pinfold\",\n                        \"streetLine3\": null,\n                        \"telephoneExtension\": \"12345\",\n                        \"telephoneNumber\": \"1234567890\",\n                        \"webAddress\": \"www.B.test.com\",\n                        \"zipCode\": \"S12HH\"\n                    },\n                    {\n                        \"addressFrom\": \"2017-02-02\",\n                        \"addressOwnshpType\": \"R\",\n                        \"addressTo\": \"2018-12-02\",\n                        \"alternativePhoneNumber\": \"1234567890123O\",\n                        \"billTo\": \"Harriet Arbuthnot\",\n                        \"city\": \"Braemar\",\n                        \"contactFirstName\": \"Bester\",\n                        \"contactJobTitle\": \"Scholar\",\n                        \"contactLastName\": \"Tester\",\n                        \"contactSecondName\": \"William\",\n                        \"contactTitle\": \"Sr.\",\n                        \"contactType\": \"B\",\n                        \"countryCode\": \"528\",\n                        \"county\": \"Sheffield\",\n                        \"emailAddress\": \"123@abc-test.com\",\n                        \"faxNumber\": \"00000000000\",\n                        \"flatName\": \"Odeon\",\n                        \"homeTelephoneNumber\": \"00000000000\",\n                        \"houseName\": \"Cosmo\",\n                        \"houseNumber\": \"123\",\n                        \"leaseExpire\": \"2019-01-18\",\n                        \"locality\": \"Paradise Square\",\n                        \"premisesRentedFlag\": true,\n                        \"rentedSince\": \"2019-01-18\",\n                        \"shipTo\": \"Robert Armin\",\n                        \"stateCode\": \"GB\",\n                        \"statusCode\": \"A\",\n                        \"streetLine1\": \"Dixon\",\n                        \"streetLine2\": \"Pinfold\",\n                        \"streetLine3\": null,\n                        \"telephoneExtension\": \"12345\",\n                        \"telephoneNumber\": \"1234567890\",\n                        \"webAddress\": \"www.B.test.com\",\n                        \"zipCode\": \"S12HH\"\n                    },\n                    {\n                        \"addressFrom\": \"2019-12-01\",\n                        \"addressOwnshpType\": \"O\",\n                        \"addressTo\": \"2020-11-02\",\n                        \"alternativePhoneNumber\": \"0012124545789\",\n                        \"billTo\": \"Setting Corp.\",\n                        \"city\": \"Luton\",\n                        \"contactFirstName\": \"Ipek\",\n                        \"contactJobTitle\": \"Setter\",\n                        \"contactLastName\": \"Ipuer\",\n                        \"contactSecondName\": null,\n                        \"contactTitle\": \"Ing.\",\n                        \"contactType\": \"IPU\",\n                        \"countryCode\": \"528\",\n                        \"county\": \"Manchester\",\n                        \"emailAddress\": \"seth.setter01@test-mail.co.uk\",\n                        \"faxNumber\": \"123499990123\",\n                        \"flatName\": \"Setter Home\",\n                        \"homeTelephoneNumber\": \"004403456044444\",\n                        \"houseName\": \"S House\",\n                        \"houseNumber\": \"813\",\n                        \"leaseExpire\": \"2020-01-18\",\n                        \"locality\": \"London\",\n                        \"premisesRentedFlag\": true,\n                        \"rentedSince\": \"2019-01-18\",\n                        \"shipTo\": \"Nowhere\",\n                        \"stateCode\": \"GB\",\n                        \"streetLine1\": \"Test Street\",\n                        \"streetLine2\": \"Whitefield\",\n                        \"streetLine3\": \"Line 3 poiuy\",\n                        \"telephoneExtension\": \"+44\",\n                        \"telephoneNumber\": \"+441234567890\",\n                        \"webAddress\": \"www.setter-test.com\",\n                        \"zipCode\": \"TW27LD\"\n                    }\n                ],\n                \"currCode\": \"EUR\",\n                \"delivery0DaysPerc\": \"100\",\n                \"delivery1To7DaysPerc\": \"0\",\n                \"delivery8To14DaysPerc\": \"0\",\n                \"delivery15To30DaysPerc\": \"0\",\n                \"deliveryOver30DaysPerc\": \"0\",\n                \"depositAvgTime\": 0,\n                \"depositPerc\": 0,\n                \"depositReqPerc\": \"10\",\n                \"equipmentOffer\": null,\n                \"estAvgTicket\": 20,\n                \"fullPmntBefDelAvgTime\": 0,\n                \"fullPmntBefDelPerc\": 0,\n                \"gteesAvgLen\": 20,\n                \"gteesCardTurnoverPerc\": 10,\n                \"idealTurnover\": \"10000\",\n                \"mccIso\": \"5039\",\n                \"methCpSale\": \"12500\",\n                \"methInternetSale\": 0,\n                \"methMotoSale\": 0,\n                \"outletLanguage\": \"NL\",\n                \"outletWebsite\": \"https://outlet-webpage-test.com\",\n                \"paperStmtReqFlag\": false,\n                \"parentPspMid\": null,\n                \"prodServSold\": \"Construction material\",\n                \"receiptAddressLine1\": \"EMS receipt\",\n                \"receiptName\": \"Test receipt name\",\n                \"recurringFlag\": false,\n                \"refOutletId\": null,\n                \"refundDays\": 3,\n                \"refundPolicy\": \"Full Refund\",\n                \"salesFtfPerc\": 100,\n                \"salesInternetPerc\": 0,\n                \"salesMotoPerc\": 0,\n                \"swipedCnp\": 0,\n                \"swipedCp\": 100,\n                \"thirdPartyNames\": \"Emsthird\",\n                \"tradeName\": \"Outlet EMS full\",\n                \"welcomePack\": \"0\"\n            }\n        ],\n        \"parentPspMid\": \"09910055\",\n        \"registrationCountry\": \"528\",\n        \"salesContractDate\": \"2019-11-01\",\n        \"siteVisitDate\": \"2019-11-04\",\n        \"taxId\": \"btw12345\",\n        \"tradeName\": \"Test of EMS Maximum\"\n    },\n    \"crmOpportunityId\": null,\n    \"customFields\": [\n        {\n            \"customFieldCode\": \"OMPCR_763_Business Segment\",\n            \"customFieldValue\": \"financial\"\n        }\n    ],\n    \"hierarchyLinkingIndicator\": \"O\",\n    \"linkingInternalMid\": null,\n    \"ownershipEntity\": {\n        \"assocName\": \"Assoc Name\",\n        \"foundationDate\": \"2018-04-01\",\n        \"incorporatedDate\": \"2018-04-01\",\n        \"intTaxExemptFlag\": false,\n        \"intTaxId\": \"NL23456897898\",\n        \"legalName\": \"EMScorp\",\n        \"owners\": [\n            {\n                \"accountHolderName\": \"Account Owner\",\n                \"accountNumber\": \"NL23456897898\",\n                \"adjunctedFlag\": false,\n                \"associatedFlag\": false,\n                \"bankAccountRtshp\": null,\n                \"contactDob\": \"1969-09-24\",\n                \"contacts\": [\n                    {\n                        \"addressFrom\": \"2017-12-01\",\n                        \"addressOwnshpType\": \"O\",\n                        \"addressTo\": \"2020-10-02\",\n                        \"alternativePhoneNumber\": \"0012124545789\",\n                        \"billTo\": \"Owning Corp.\",\n                        \"city\": \"Oldham\",\n                        \"contactFirstName\": \"Owen\",\n                        \"contactJobTitle\": \"Boss\",\n                        \"contactLastName\": \"Owenns\",\n                        \"contactSecondName\": \"Jeff\",\n                        \"contactTitle\": \"MgA.\",\n                        \"contactType\": \"OWM\",\n                        \"countryCode\": \"528\",\n                        \"county\": \"Hull\",\n                        \"emailAddress\": \"own.number1@test-mail.co.uk\",\n                        \"faxNumber\": \"1777490123\",\n                        \"flatName\": \"Owner Home\",\n                        \"homeTelephoneNumber\": \"56+99878954516\",\n                        \"houseName\": \"OWM House\",\n                        \"houseNumber\": \"813\",\n                        \"leaseExpire\": \"2022-01-18\",\n                        \"locality\": \"London\",\n                        \"premisesRentedFlag\": true,\n                        \"rentedSince\": \"2019-01-18\",\n                        \"shipTo\": \"Here\",\n                        \"stateCode\": \"GB\",\n                        \"streetLine1\": \"Test Street\",\n                        \"streetLine2\": \"Greenfield\",\n                        \"streetLine3\": \"Line 3 lkjhg\",\n                        \"telephoneExtension\": \"+44\",\n                        \"telephoneNumber\": \"+4412378967890\",\n                        \"webAddress\": \"www.owner-test.com\",\n                        \"zipCode\": \"TW27LD\"\n                    }\n                ],\n                \"countryCodeOfResid\": \"528\",\n                \"genderCode\": \"M\",\n                \"maritalStatusCode\": \"ENG\",\n                \"ownerFirstName\": \"Olaf\",\n                \"ownerLanguageCode\": \"NL\",\n                \"ownerNationality\": \"528\",\n                \"ownerPosition\": \"OW\",\n                \"ownerSecondName\": \"Secundus\",\n                \"ownershipPerc\": \"100\",\n                \"ownershipType\": \"O\",\n                \"ownerSurname\": \"Koenig\",\n                \"ownerTitle\": \"Mr.\",\n                \"personalGuarantee\": false,\n                \"rtshipStartDate\": \"1999-08-23\",\n                \"sortCode\": null\n            }\n        ],\n        \"ownershipEntityLanguage\": \"NL\",\n        \"ownershipEntityType\": \"ST\",\n        \"regCharityNumber\": null,\n        \"regNumber\": \"71242341\",\n        \"taxId\": \"btw12345\",\n        \"vatAppliedFlag\": false\n    },\n    \"platformCode\": \"SOA\",\n    \"salesArea\": 1,\n    \"salesChannel\": \"I\",\n    \"sellerEmailAddress\": \"emsseller@testmail.eu\",\n    \"sellerFirstName\": \"Jack\",\n    \"sellerId\": \"00000135\",\n    \"sellerLastName\": \"Sellington\",\n    \"documents\": [\n        {\n            \"businessEntitiesIndexes\": [\n                0\n            ],\n            \"contentType\": \"PDF\",\n            \"dateFrom\": \"2018-08-07T11:41:15.741Z\",\n            \"dateTo\": \"2018-08-07T11:41:15.741Z\",\n            \"documentCat\": \"string\",\n            \"documentType\": \"SMPA\",\n            \"outletIndexes\": [\n                1\n            ],\n            \"signatureMethod\": \"SIGNATURE HERE\",\n            \"url\": \"http://www.placefordocuments.com\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/new-merchant",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"new-merchant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2_OrderDetailsGet",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4fa3103c-cfb7-46e1-8a48-71dd26a653ec",
+								"exec": [
+									"pm.globals.set(\"url\", \"https://qa.api.firstdata.com/\");",
+									"pm.globals.set(\"base_path\", \"ipp/v2/boarding\");",
+									"pm.globals.set(\"AppKey\", \"p7LMi7ikvAuQshRU3lIwAr5oV1kBQdmW\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "96a02ebb-4a3f-416d-b04b-00baa2ab4130",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string: status\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"status\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AppKey",
+								"type": "text",
+								"value": "{{AppKey}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3_NewMerchantOrderByOrderIdPut",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c720ec63-9369-4a1c-9f54-e946a3997f43",
+								"exec": [
+									"pm.globals.set(\"url\", \"https://qa.api.firstdata.com/\");",
+									"pm.globals.set(\"base_path\", \"ipp/v2/boarding\");",
+									"pm.globals.set(\"AppKey\", \"p7LMi7ikvAuQshRU3lIwAr5oV1kBQdmW\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d88e80f-d4bf-4364-8791-3991f4538217",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "AppKey",
+								"type": "text",
+								"value": "{{AppKey}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"agentBankCode\": \"09910001\",\r\n    \"allianceCode\": \"EMS\",\r\n    \"appStatusCode\": \"O\",\r\n    \"applicationRefNum\": \"321230051\",\r\n    \"applicationTypeCode\": \"NM\",\r\n    \"businessEntity\": {\r\n        \"bankAccounts\": [\r\n                    {\r\n                        \"accountHolderName\": \"Francis Bacon\",\r\n                        \"accountType\": \"Payment Account Retail\",\r\n                        \"accountTypeSysId\": \"170\",\r\n                        \"bankAccountCurrency\": \"EUR\",\r\n                        \"bankAccountName\": \"bankAccountName3\",\r\n                        \"bankAccountNumber\": \"16354486\",\r\n                        \"bankAccountRef\": null,\r\n                        \"bankAccountStatus\": null,\r\n                        \"bankAddress\": \"Bank Street 4\",\r\n                        \"bankCity\": \"Gloucester\",\r\n                        \"bankCountryCode\": \"528\",\r\n                        \"bankingAccountManagerName\": \"Account Manager3\",\r\n                        \"bankName\": \"Test Bank3\",\r\n                        \"bankPhoneNumber\": \"1234567890\",\r\n                        \"bankSortCode\": \"123456\",\r\n                        \"daysCredit\": \"1\",\r\n                        \"daysDebit\": \"1\",\r\n                        \"iban\": \"NL66RABO0354446373\",\r\n                        \"swift\": \"RABONL2U\"\r\n                    },\r\n                    {\r\n                        \"accountHolderName\": \"Manual Adjustments hld\",\r\n                        \"accountType\": \"Manual Adjustments\",\r\n                        \"accountTypeSysId\": \"077\",\r\n                        \"bankAccountCurrency\": \"EUR\",\r\n                        \"bankAccountNumber\": null,\r\n                        \"bankCountryCode\": \"528\",\r\n                        \"bankSortCode\": null,\r\n                        \"daysCredit\": 1,\r\n                        \"daysDebit\": 2,\r\n                        \"iban\": \"GB46BUKB20041538290008\",\r\n                        \"swift\": \"BUKBGB22\"\r\n                    },\r\n                    {\r\n                        \"accountHolderName\": \"Merchant Hold Account hld\",\r\n                        \"accountType\": \"Merchant Hold Account\",\r\n                        \"accountTypeSysId\": \"189\",\r\n                        \"bankAccountCurrency\": \"EUR\",\r\n                        \"bankAccountNumber\": null,\r\n                        \"bankCountryCode\": \"528\",\r\n                        \"bankSortCode\": null,\r\n                        \"daysCredit\": 1,\r\n                        \"daysDebit\": 2,\r\n                        \"iban\": \"GB46BUKB20041538290008\",\r\n                        \"swift\": \"BUKBGB22\"\r\n                    }\r\n                ],\r\n        \"businessEntityId\": 2973,\r\n        \"bussinessRegistrationNumber\": \"1122003344\",\r\n        \"contacts\": [\r\n            {\r\n                \"addressFrom\": \"2019-01-01\",\r\n                \"addressOwnshpType\": \"O\",\r\n                \"addressTo\": \"2020-12-01\",\r\n                \"alternativePhoneNumber\": \"0012124545789\",\r\n                \"billTo\": \"Testing Corp.\",\r\n                \"city\": \"Whitton\",\r\n                \"contactFirstName\": \"Lester\",\r\n                \"contactId\": 7798,\r\n                \"contactJobTitle\": \"Tester\",\r\n                \"contactLastName\": \"Luthor\",\r\n                \"contactSecondName\": \"Lex\",\r\n                \"contactTitle\": \"Mr.\",\r\n                \"contactType\": \"L\",\r\n                \"countryCode\": \"528\",\r\n                \"county\": \"Amsterdam\",\r\n                \"emailAddress\": \"lester.l.luthor@test-mail.co.uk\",\r\n                \"faxNumber\": \"123456120123\",\r\n                \"flatName\": \"Lester Home\",\r\n                \"homeTelephoneNumber\": \"004403456044444\",\r\n                \"houseName\": \"L House\",\r\n                \"houseNumber\": \"813\",\r\n                \"leaseExpire\": \"2020-01-18\",\r\n                \"locality\": \"Cambridge\",\r\n                \"premisesRentedFlag\": true,\r\n                \"rentedSince\": \"2019-01-18\",\r\n                \"shipTo\": \"Aumonier\",\r\n                \"stateCode\": \"NL\",\r\n                \"streetLine1\": \"Test Street\",\r\n                \"streetLine2\": \"Anfield\",\r\n                \"streetLine3\": \"Line 3 asdf\",\r\n                \"telephoneExtension\": \"+44\",\r\n                \"telephoneNumber\": \"+441234567890\",\r\n                \"webAddress\": \"www.lester-test.com\",\r\n                \"zipCode\": \"1071JA\"\r\n            }\r\n        ],\r\n        \"contractDate\": \"2019-11-30\",\r\n        \"mccIso\": \"5039\",\r\n        \"merchantLanguage\": \"NL\",\r\n        \"name\": \"EMS mega business\",\r\n        \"outlets\": [\r\n            {\r\n                \"acquiringOffer\": {\r\n                    \"acquiringOfferingExternalId\": \"ACO3E-776B8-C5062-8FC2B-BCF18-734FA-897BF\",\r\n                    \"postingTariffId\": \"039\",\r\n                    \"serviceCharges\": [\r\n                        {\r\n                            \"feeBase\": 4,\r\n                            \"serviceChargeItemExternalId\": \"SCI7F-CD9F6-E7D44-0C836-7ABA2-E29B5-EDCB5\"\r\n                        }\r\n                    ],\r\n                    \"settlementMethodId\": \"174\",\r\n                    \"transactionCharges\": [\r\n                        {\r\n                            \"feeBase\": 4,\r\n                            \"transactionChargeItemExternalId\": \"TCID8-D3653-759F7-521DE-F8CCD-51AF9-9558A\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"annualAltPmntTurnover\": 0,\r\n                \"annualCardTurnover\": 12500,\r\n                \"annualCreditTurnover\": 0,\r\n                \"annualDebitTurnover\": 0,\r\n                \"annualTurnover\": 12500,\r\n                \"autoRenewalFlag\": false,\r\n                \"avgGoodsReturnedPerc\": 0,\r\n                \"b2bPmntPerc\": 0,\r\n                \"b2bSale\": 0,\r\n                \"bankAccounts\": [\r\n                    {\r\n                        \"accountHolderName\": \"Merchant Hold Account hld\",\r\n                        \"accountType\": \"Merchant Hold Account\",\r\n                        \"accountTypeSysId\": \"189\",\r\n                        \"bankAccountCurrency\": \"EUR\",\r\n                        \"bankAccountId\": 4537,\r\n                        \"bankCountryCode\": \"528\",\r\n                        \"daysCredit\": 1,\r\n                        \"daysDebit\": 2,\r\n                        \"iban\": \"GB46BUKB20041538290008\",\r\n                        \"swift\": \"BUKBGB22\"\r\n                    },\r\n                    {\r\n                        \"accountHolderName\": \"Manual Adjustments hld\",\r\n                        \"accountType\": \"Manual Adjustments\",\r\n                        \"accountTypeSysId\": \"077\",\r\n                        \"bankAccountCurrency\": \"EUR\",\r\n                        \"bankAccountId\": 4536,\r\n                        \"bankCountryCode\": \"528\",\r\n                        \"daysCredit\": 1,\r\n                        \"daysDebit\": 2,\r\n                        \"iban\": \"GB46BUKB20041538290008\",\r\n                        \"swift\": \"BUKBGB22\"\r\n                    },\r\n                    {\r\n                        \"accountHolderName\": \"Francis Bacon\",\r\n                        \"accountType\": \"Payment Account Retail\",\r\n                        \"accountTypeSysId\": \"170\",\r\n                        \"bankAccountCurrency\": \"EUR\",\r\n                        \"bankAccountId\": 4535,\r\n                        \"bankAccountName\": \"bankAccountName3\",\r\n                        \"bankAccountNumber\": \"16354486\",\r\n                        \"bankAddress\": \"Bank Street 4\",\r\n                        \"bankCity\": \"Gloucester\",\r\n                        \"bankCountryCode\": \"528\",\r\n                        \"bankName\": \"Test Bank3\",\r\n                        \"bankPhoneNumber\": \"1234567890\",\r\n                        \"bankSortCode\": \"123456\",\r\n                        \"bankingAccountManagerName\": \"Account Manager3\",\r\n                        \"daysCredit\": 1,\r\n                        \"daysDebit\": 1,\r\n                        \"iban\": \"NL66RABO0354446373\",\r\n                        \"swift\": \"RABONL2U\"\r\n                    }\r\n                ],\r\n                \"businessCatCode\": \"RT\",\r\n                \"businessType\": \"R\",\r\n                \"clientRegion\": \"By Transaction\",\r\n                \"clientRegionSysId\": 1.0,\r\n                \"contacts\": [\r\n                    {\r\n                        \"addressFrom\": \"2019-12-01\",\r\n                        \"addressOwnshpType\": \"O\",\r\n                        \"addressTo\": \"2020-11-02\",\r\n                        \"alternativePhoneNumber\": \"0012124545789\",\r\n                        \"billTo\": \"Setting Corp.\",\r\n                        \"city\": \"Luton\",\r\n                        \"contactFirstName\": \"Ipek\",\r\n                        \"contactId\": 7799,\r\n                        \"contactJobTitle\": \"Setter\",\r\n                        \"contactLastName\": \"Ipuer\",\r\n                        \"contactTitle\": \"Ing.\",\r\n                        \"contactType\": \"IPU\",\r\n                        \"countryCode\": \"528\",\r\n                        \"county\": \"Manchester\",\r\n                        \"emailAddress\": \"seth.setter01@test-mail.co.uk\",\r\n                        \"faxNumber\": \"123499990123\",\r\n                        \"flatName\": \"Setter Home\",\r\n                        \"homeTelephoneNumber\": \"004403456044444\",\r\n                        \"houseName\": \"S House\",\r\n                        \"houseNumber\": \"813\",\r\n                        \"leaseExpire\": \"2020-01-18\",\r\n                        \"locality\": \"London\",\r\n                        \"premisesRentedFlag\": true,\r\n                        \"rentedSince\": \"2019-01-18\",\r\n                        \"shipTo\": \"Nowhere\",\r\n                        \"stateCode\": \"GB\",\r\n                        \"streetLine1\": \"Test Street\",\r\n                        \"streetLine2\": \"Whitefield\",\r\n                        \"streetLine3\": \"Line 3 poiuy\",\r\n                        \"telephoneExtension\": \"+44\",\r\n                        \"telephoneNumber\": \"+441234567890\",\r\n                        \"webAddress\": \"www.setter-test.com\",\r\n                        \"zipCode\": \"TW27LD\"\r\n                    },\r\n                    {\r\n                        \"addressFrom\": \"2017-02-02\",\r\n                        \"addressOwnshpType\": \"R\",\r\n                        \"addressTo\": \"2018-12-02\",\r\n                        \"alternativePhoneNumber\": \"1234567890123O\",\r\n                        \"billTo\": \"Harriet Arbuthnot\",\r\n                        \"city\": \"Braemar\",\r\n                        \"contactFirstName\": \"Sassan\",\r\n                        \"contactId\": 7802,\r\n                        \"contactJobTitle\": \"Scholar\",\r\n                        \"contactLastName\": \"Tester\",\r\n                        \"contactSecondName\": \"Idlib\",\r\n                        \"contactTitle\": \"Sr.\",\r\n                        \"contactType\": \"S\",\r\n                        \"countryCode\": \"528\",\r\n                        \"county\": \"Sheffield\",\r\n                        \"emailAddress\": \"123@abc-test.com\",\r\n                        \"faxNumber\": \"00000000000\",\r\n                        \"flatName\": \"Odeon\",\r\n                        \"homeTelephoneNumber\": \"00000000000\",\r\n                        \"houseName\": \"Cosmo\",\r\n                        \"houseNumber\": \"123\",\r\n                        \"leaseExpire\": \"2019-01-18\",\r\n                        \"locality\": \"Paradise Square\",\r\n                        \"premisesRentedFlag\": true,\r\n                        \"rentedSince\": \"2019-01-18\",\r\n                        \"shipTo\": \"Robert Armin\",\r\n                        \"stateCode\": \"GB\",\r\n                        \"streetLine1\": \"Dixon\",\r\n                        \"streetLine2\": \"Pinfold\",\r\n                        \"telephoneExtension\": \"12345\",\r\n                        \"telephoneNumber\": \"1234567890\",\r\n                        \"webAddress\": \"www.B.test.com\",\r\n                        \"zipCode\": \"S12HH\"\r\n                    },\r\n                    {\r\n                        \"addressFrom\": \"2019-02-01\",\r\n                        \"addressOwnshpType\": \"O\",\r\n                        \"addressTo\": \"2020-12-02\",\r\n                        \"alternativePhoneNumber\": \"0012124545789\",\r\n                        \"billTo\": \"Testing Corp.\",\r\n                        \"city\": \"Brighton\",\r\n                        \"contactFirstName\": \"Otto\",\r\n                        \"contactId\": 7800,\r\n                        \"contactJobTitle\": \"Other stuff\",\r\n                        \"contactLastName\": \"Otter\",\r\n                        \"contactTitle\": \"Bc.\",\r\n                        \"contactType\": \"OT\",\r\n                        \"countryCode\": \"528\",\r\n                        \"county\": \"Manchester\",\r\n                        \"emailAddress\": \"otto.o@test-mail.co.uk\",\r\n                        \"faxNumber\": \"123499990123\",\r\n                        \"flatName\": \"Otter Home\",\r\n                        \"homeTelephoneNumber\": \"004403456044444\",\r\n                        \"houseName\": \"OT House\",\r\n                        \"houseNumber\": \"813\",\r\n                        \"leaseExpire\": \"2020-01-18\",\r\n                        \"locality\": \"Cambridge\",\r\n                        \"premisesRentedFlag\": true,\r\n                        \"rentedSince\": \"2019-01-18\",\r\n                        \"shipTo\": \"Somewhere\",\r\n                        \"stateCode\": \"GB\",\r\n                        \"streetLine1\": \"Test Street\",\r\n                        \"streetLine2\": \"Blufield\",\r\n                        \"streetLine3\": \"Line 3 qwert\",\r\n                        \"telephoneExtension\": \"+44\",\r\n                        \"telephoneNumber\": \"+441234567890\",\r\n                        \"webAddress\": \"www.otter-test.com\",\r\n                        \"zipCode\": \"TW27LD\"\r\n                    },\r\n                    {\r\n                        \"addressFrom\": \"2017-02-02\",\r\n                        \"addressOwnshpType\": \"R\",\r\n                        \"addressTo\": \"2018-12-02\",\r\n                        \"alternativePhoneNumber\": \"1234567890123O\",\r\n                        \"billTo\": \"Harriet Arbuthnot\",\r\n                        \"city\": \"Braemar\",\r\n                        \"contactFirstName\": \"Bester\",\r\n                        \"contactId\": 7801,\r\n                        \"contactJobTitle\": \"Scholar\",\r\n                        \"contactLastName\": \"Tester\",\r\n                        \"contactSecondName\": \"William\",\r\n                        \"contactTitle\": \"Sr.\",\r\n                        \"contactType\": \"B\",\r\n                        \"countryCode\": \"528\",\r\n                        \"county\": \"Sheffield\",\r\n                        \"emailAddress\": \"123@abc-test.com\",\r\n                        \"faxNumber\": \"00000000000\",\r\n                        \"flatName\": \"Odeon\",\r\n                        \"homeTelephoneNumber\": \"00000000000\",\r\n                        \"houseName\": \"Cosmo\",\r\n                        \"houseNumber\": \"123\",\r\n                        \"leaseExpire\": \"2019-01-18\",\r\n                        \"locality\": \"Paradise Square\",\r\n                        \"premisesRentedFlag\": true,\r\n                        \"rentedSince\": \"2019-01-18\",\r\n                        \"shipTo\": \"Robert Armin\",\r\n                        \"stateCode\": \"GB\",\r\n                        \"streetLine1\": \"Dixon\",\r\n                        \"streetLine2\": \"Pinfold\",\r\n                        \"telephoneExtension\": \"12345\",\r\n                        \"telephoneNumber\": \"1234567890\",\r\n                        \"webAddress\": \"www.B.test.com\",\r\n                        \"zipCode\": \"S12HH\"\r\n                    }\r\n                ],\r\n                \"currCode\": \"EUR\",\r\n                \"customFields\": [],\r\n                \"delivery0DaysPerc\": 100,\r\n                \"delivery15To30DaysPerc\": 0,\r\n                \"delivery1To7DaysPerc\": 0,\r\n                \"delivery8To14DaysPerc\": 0,\r\n                \"deliveryOver30DaysPerc\": 0,\r\n                \"depositAvgTime\": 0,\r\n                \"depositFlag\": true,\r\n                \"depositPerc\": 0,\r\n                \"depositReqPerc\": 10,\r\n                \"estAvgTicket\": 20,\r\n                \"fullPmntBefDelAvgTime\": 0,\r\n                \"fullPmntBefDelFlag\": false,\r\n                \"fullPmntBefDelPerc\": 0,\r\n                \"gteesAvgLen\": 20,\r\n                \"gteesCardTurnoverPerc\": 10,\r\n                \"idealTurnover\": 10000,\r\n                \"mccIso\": \"5039\",\r\n                \"methCpSale\": 12500,\r\n                \"methInternetSale\": 0,\r\n                \"methMotoSale\": 0,\r\n                \"outletId\": 2513,\r\n                \"outletLanguage\": \"NL\",\r\n                \"outletWebsite\": \"https://outlet-webpage-test.com\",\r\n                \"paperStmtReqFlag\": false,\r\n                \"prodServSold\": \"Construction material\",\r\n                \"receiptAddressLine1\": \"EMS receipt\",\r\n                \"receiptName\": \"Test receipt name\",\r\n                \"recurringFlag\": false,\r\n                \"refundDays\": 3,\r\n                \"refundPolicy\": \"Full Refund\",\r\n                \"salesFtfPerc\": 100,\r\n                \"salesInternetPerc\": 0,\r\n                \"salesMotoPerc\": 0,\r\n                \"swipedCnp\": 0,\r\n                \"swipedCp\": 100,\r\n                \"thirdPartyNames\": \"Emsthird\",\r\n                \"tradeName\": \"Outlet EMS full\",\r\n                \"welcomePack\": \"0\"\r\n            }\r\n        ],\r\n        \"parentPspMid\": \"09910055\",\r\n        \"registrationCountry\": \"528\",\r\n        \"salesContractDate\": \"2019-11-01\",\r\n        \"siteVisitDate\": \"2019-11-04\",\r\n        \"taxId\": \"btw12345\",\r\n        \"tradeName\": \"Test of EMS Maximum\"\r\n    },\r\n    \"customFields\": [\r\n        {\r\n            \"customFieldCode\": \"OMPCR_763_Business Segment\",\r\n            \"customFieldId\": 3934,\r\n            \"customFieldValue\": \"financial\"\r\n        }\r\n    ],\r\n    \"documents\": [\r\n        {\r\n            \"contentType\": \"PDF\",\r\n            \"documentCat\": \"string\",\r\n            \"documentId\": 1141,\r\n            \"documentType\": \"SMPA\",\r\n            \"outletIndexes\": [\r\n                1\r\n            ],\r\n            \"signatureMethod\": \"SIGNATURE HERE\",\r\n            \"url\": \"http://www.placefordocuments.com\"\r\n        }\r\n    ],\r\n    \"hierarchyLinkingIndicator\": \"O\",\r\n    \"ownershipEntity\": {\r\n        \"assocName\": \"Assoc Name\",\r\n        \"foundationDate\": \"2018-04-01\",\r\n        \"incorporatedDate\": \"2018-04-01\",\r\n        \"intTaxExemptFlag\": false,\r\n        \"intTaxId\": \"NL23456897898\",\r\n        \"legalName\": \"EMScorp\",\r\n        \"owners\": [\r\n            {\r\n                \"accountHolderName\": \"Account Owner\",\r\n                \"accountNumber\": \"NL23456897898\",\r\n                \"adjunctedFlag\": false,\r\n                \"associatedFlag\": false,\r\n                \"contactDob\": \"1969-09-24\",\r\n                \"contacts\": [\r\n                    {\r\n                        \"addressFrom\": \"2017-12-01\",\r\n                        \"addressOwnshpType\": \"O\",\r\n                        \"addressTo\": \"2020-10-02\",\r\n                        \"alternativePhoneNumber\": \"0012124545789\",\r\n                        \"billTo\": \"Owning Corp.\",\r\n                        \"city\": \"Oldham\",\r\n                        \"contactFirstName\": \"Owen\",\r\n                        \"contactId\": 7797,\r\n                        \"contactJobTitle\": \"Boss\",\r\n                        \"contactLastName\": \"Owenns\",\r\n                        \"contactSecondName\": \"Jeff\",\r\n                        \"contactTitle\": \"MgA.\",\r\n                        \"contactType\": \"OWM\",\r\n                        \"countryCode\": \"528\",\r\n                        \"county\": \"Hull\",\r\n                        \"emailAddress\": \"own.number1@test-mail.co.uk\",\r\n                        \"faxNumber\": \"1777490123\",\r\n                        \"flatName\": \"Owner Home\",\r\n                        \"homeTelephoneNumber\": \"56+99878954516\",\r\n                        \"houseName\": \"OWM House\",\r\n                        \"houseNumber\": \"813\",\r\n                        \"leaseExpire\": \"2022-01-18\",\r\n                        \"locality\": \"London\",\r\n                        \"premisesRentedFlag\": true,\r\n                        \"rentedSince\": \"2019-01-18\",\r\n                        \"shipTo\": \"Here\",\r\n                        \"stateCode\": \"GB\",\r\n                        \"streetLine1\": \"Test Street\",\r\n                        \"streetLine2\": \"Greenfield\",\r\n                        \"streetLine3\": \"Line 3 lkjhg\",\r\n                        \"telephoneExtension\": \"+44\",\r\n                        \"telephoneNumber\": \"+4412378967890\",\r\n                        \"webAddress\": \"www.owner-test.com\",\r\n                        \"zipCode\": \"TW27LD\"\r\n                    }\r\n                ],\r\n                \"countryCodeOfResid\": \"528\",\r\n                \"genderCode\": \"M\",\r\n                \"maritalStatusCode\": \"ENG\",\r\n                \"ownerFirstName\": \"Olaf\",\r\n                \"ownerId\": 2511,\r\n                \"ownerLanguageCode\": \"NL\",\r\n                \"ownerNationality\": \"528\",\r\n                \"ownerPosition\": \"OW\",\r\n                \"ownerSecondName\": \"Secundus\",\r\n                \"ownerSurname\": \"Koenig\",\r\n                \"ownerTitle\": \"Mr.\",\r\n                \"ownershipPerc\": 100,\r\n                \"ownershipType\": \"O\",\r\n                \"personalGuarantee\": \"false\",\r\n                \"rtshipStartDate\": \"1999-08-23\"\r\n            }\r\n        ],\r\n        \"ownershipEntityId\": 2393,\r\n        \"ownershipEntityLanguage\": \"NL\",\r\n        \"ownershipEntityType\": \"ST\",\r\n        \"regNumber\": \"71242341\",\r\n        \"taxId\": \"btw12345\",\r\n        \"vatAppliedFlag\": false\r\n    },\r\n    \"platformCode\": \"SOA\",\r\n    \"salesArea\": 1,\r\n    \"salesChannel\": \"I\",\r\n    \"sellerEmailAddress\": \"emsseller@testmail.eu\",\r\n    \"sellerFirstName\": \"Jack\",\r\n    \"sellerId\": \"00000135\",\r\n    \"sellerLastName\": \"Sellington\",\r\n    \"undrwtgStatus\": \"AWUW\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}/new-merchant",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}",
+								"new-merchant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4_NewMerchantOrderByOrderIdGet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e020b84-ce84-4986-b054-f15ffb783aac",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    var jsonData = pm.response.json();",
+									"    pm.globals.set(\"document_id\", jsonData.documents[0].documentId);",
+									"});",
+									"",
+									"pm.test(\"Body matches string: agentBankCode\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"agentBankCode\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8396324a-b2ea-4e6d-b504-7767b4448e3c",
+								"exec": [
+									"pm.globals.set(\"url\", \"https://qa.api.firstdata.com/\");",
+									"pm.globals.set(\"base_path\", \"ipp/v2/boarding\");",
+									"pm.globals.set(\"AppKey\", \"p7LMi7ikvAuQshRU3lIwAr5oV1kBQdmW\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}/new-merchant",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}",
+								"new-merchant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5_UploadedOrderDocumentPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c4c21da-5d12-4f98-b252-e8d1379e41ed",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f4808b2b-f363-4815-8f97-556ffdbbe8aa",
+								"exec": [
+									"pm.globals.set(\"url\", \"https://qa.api.firstdata.com/\");",
+									"pm.globals.set(\"base_path\", \"ipp/v2/boarding\");",
+									"pm.globals.set(\"AppKey\", \"p7LMi7ikvAuQshRU3lIwAr5oV1kBQdmW\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/fctq2az/Downloads/Como fazer uma reuniao one.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}/documents/{{document_id}}/document-data",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}",
+								"documents",
+								"{{document_id}}",
+								"document-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6_downloadDocument",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3949af29-7bd7-4374-918b-bcf27d87e23e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}/documents/{{document_id}}/document-data",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}",
+								"documents",
+								"{{document_id}}",
+								"document-data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7_NewOutletOrderPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dbfee3d7-6c5a-49a9-b824-3d9efab860aa",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    pm.globals.set(\"orders_id\", pm.response.text());",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"agentBankCode\": \"20000001\",\r\n    \"allianceCode\": \"FDPSP\",\r\n    \"appStatusCode\": \"O\",\r\n    \"applicationRefNum\": \"5550010333\",\r\n    \"applicationTypeCode\": \"NM\",\r\n    \"platformCode\": null,\r\n    \"salesArea\": null,\r\n    \"salesChannel\": null,\r\n    \"sellerEmailAddress\": null,\r\n    \"sellerFirstName\": null,\r\n    \"sellerId\": null,\r\n    \"sellerLastName\": null,\r\n    \"crmOpportunityId\": null,\r\n    \"linkingInternalMid\": \"8898998\",\r\n    \"parentExternalMerchantID\": \"ACCOR\",\r\n    \"contacts\": [\r\n        {\r\n            \"addressFrom\": null,\r\n            \"addressOwnshpType\": null,\r\n            \"addressTo\": null,\r\n            \"alternativePhoneNumber\": null,\r\n            \"billTo\": null,\r\n            \"city\": \"Edinburgh\",\r\n            \"contactFirstName\": \"William\",\r\n            \"contactSecondName\": null,\r\n            \"contactJobTitle\": \"Warrior\",\r\n            \"contactLastName\": \"Wallace\",\r\n            \"contactTitle\": null,\r\n            \"contactType\": \"L\",\r\n            \"countryCode\": \"826\",\r\n            \"countyCode\": null,\r\n            \"dateFrom\": null,\r\n            \"dateTo\": null,\r\n            \"emailAddress\": \"thomass@allen.com\",\r\n            \"faxNumber\": null,\r\n            \"flatName\": null,\r\n            \"homeTelephoneNumber\": null,\r\n            \"houseName\": null,\r\n            \"houseNumber\": null,\r\n            \"leaseExpire\": null,\r\n            \"locality\": null,\r\n            \"premisesRentedFlag\": null,\r\n            \"rentedSince\": null,\r\n            \"shipTo\": null,\r\n            \"stateCode\": null,\r\n            \"statusCode\": \"A\",\r\n            \"streetLine1\": \"Stirling Road\",\r\n            \"streetLine2\": null,\r\n            \"streetLine3\": null,\r\n            \"telephoneExtension\": null,\r\n            \"telephoneNumber\": \"009876543219\",\r\n            \"webAddress\": null,\r\n            \"zipCode\": \"L67UN\"\r\n        },\r\n        {\r\n            \"addressFrom\": null,\r\n            \"addressOwnshpType\": null,\r\n            \"addressTo\": null,\r\n            \"alternativePhoneNumber\": null,\r\n            \"billTo\": null,\r\n            \"city\": \"Aberdeen\",\r\n            \"contactFirstName\": \"Walter\",\r\n            \"contactSecondName\": null,\r\n            \"contactJobTitle\": \"Writer\",\r\n            \"contactLastName\": \"Scott\",\r\n            \"contactTitle\": null,\r\n            \"contactType\": \"B\",\r\n            \"countryCode\": \"826\",\r\n            \"countyCode\": null,\r\n            \"dateFrom\": null,\r\n            \"dateTo\": null,\r\n            \"emailAddress\": null,\r\n            \"faxNumber\": null,\r\n            \"flatName\": null,\r\n            \"homeTelephoneNumber\": null,\r\n            \"houseName\": null,\r\n            \"houseNumber\": null,\r\n            \"leaseExpire\": null,\r\n            \"locality\": null,\r\n            \"premisesRentedFlag\": null,\r\n            \"rentedSince\": null,\r\n            \"shipTo\": null,\r\n            \"stateCode\": null,\r\n            \"statusCode\": \"A\",\r\n            \"streetLine1\": \"Scotland Street\",\r\n            \"streetLine2\": null,\r\n            \"streetLine3\": null,\r\n            \"telephoneExtension\": null,\r\n            \"telephoneNumber\": \"00944444419\",\r\n            \"webAddress\": null,\r\n            \"zipCode\": \"L67UN\"\r\n        }\r\n    ],    \r\n    \"outlets\": [\r\n        {\r\n            \"receiptAddressLine1\": null,\r\n            \"paperStmtReqFlag\": null,\r\n            \"receiptName\": null,\r\n            \"thirdPartyNames\": null,\r\n            \"visaMpQualFlagInd\": null,\r\n            \"welcomePack\": null,\r\n            \"autoRenewalFlag\": true,\r\n            \"avgGoodsReturnedPerc\": null,\r\n            \"outletLanguage\": null,\r\n            \"annualCardTurnover\": \"584000\",\r\n            \"annualTurnover\": null,\r\n            \"clientRegion\": null,\r\n            \"clientRegionSysId\": null,\r\n            \"currCode\": \"GBP\",\r\n            \"businessType\": null,\r\n            \"delivery0DaysPerc\": null,\r\n            \"delivery15To30DaysPerc\": null,\r\n            \"delivery1To7DaysPerc\": null,\r\n            \"delivery8To14DaysPerc\": null,\r\n            \"deliveryOver30DaysPerc\": null,\r\n            \"depositFlag\": null,\r\n            \"estAvgTicket\": null,\r\n            \"externalMerchantId\": null,\r\n            \"mccIso\": \"5192\",\r\n            \"outletWebsite\": \"http://www.heritage.com\",\r\n            \"prodServSold\": null,\r\n            \"recurringFlag\": null,\r\n            \"salesFtfPerc\": null,\r\n            \"salesInternetPerc\": null,\r\n            \"salesMotoPerc\": null,\r\n            \"tradeName\": \"BriannaFraser\",\r\n            \"contacts\": [\r\n                {\r\n                    \"addressFrom\": \"2007-03-17\",\r\n                    \"addressOwnshpType\": \"R\",\r\n                    \"addressTo\": \"2018-12-17\",\r\n                    \"alternativePhoneNumber\": \"0003564856\",\r\n                    \"billTo\": \"Dougal McCintosh\",\r\n                    \"city\": \"Inverness\",\r\n                    \"contactFirstName\": \"Claire\",\r\n                    \"contactSecondName\": \"Randall\",\r\n                    \"contactJobTitle\": \"Doctor\",\r\n                    \"contactLastName\": \"Fraser\",\r\n                    \"contactTitle\": \"Mrs.\",\r\n                    \"contactType\": \"OT\",\r\n                    \"countryCode\": \"826\",\r\n                    \"county\": \"Scotland\",\r\n                    \"dateFrom\": \"2019-01-02T07:54:34.255Z\",\r\n                    \"dateTo\": \"2022-12-31T07:54:34.255Z\",\r\n                    \"emailAddress\": \"claire.fraser@sassenach.com\",\r\n                    \"faxNumber\": \"0056655644566\",\r\n                    \"flatName\": \"Brianna\",\r\n                    \"homeTelephoneNumber\": \"0436214835\",\r\n                    \"houseName\": \"Ridge\",\r\n                    \"houseNumber\": \"32\",\r\n                    \"leaseExpire\": \"2019-03-31\",\r\n                    \"locality\": \"Culloden\",\r\n                    \"premisesRentedFlag\": true,\r\n                    \"rentedSince\": \"2019-01-03\",\r\n                    \"shipTo\": \"William Wallace\",\r\n                    \"stateCode\": \"GB\",\r\n                    \"statusCode\": \"A\",\r\n                    \"streetLine1\": \"Alley 2\",\r\n                    \"streetLine2\": \"Ailea\",\r\n                    \"streetLine3\": null,\r\n                    \"telephoneExtension\": \"089\",\r\n                    \"telephoneNumber\": \"0065522332654\",\r\n                    \"webAddress\": \"http://www.sassenach.co.uk\",\r\n                    \"zipCode\": \"TW62GW\"\r\n                }\r\n            ],\r\n            \"equipmentOffer\": {\r\n                \"equipmentOfferingExternalId\": \"EQO5F-FE971-46B22-A35A0-4FF2C-A1936-E988F\",\r\n                \"equipmentsBundle\": [\r\n                    {\r\n                        \"equipmentBundleExternalId\": \"EQB46-12868-91852-66F6E-AEA69-40D7D-6C845\",\r\n                        \"bundleItems\": [\r\n                            {\r\n                                \"equipmentExternalId\": \"PROB9-D635E-69776-9D286-A1090-9E0E1-A37B1\",\r\n                                \"billingMethodExternalId\": \"PBM5E-2AAD6-65E15-BF81D-32D4F-230CB-20121\",\r\n                                \"terminalUnitPrice\": \"21.94559\",\r\n                                \"terminalPrice\": \"50.00\",\r\n                                \"features\": null\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"equipmentBundleExternalId\": \"EBIB9-4663B-97276-5638C-69E1F-2DB92-915F4\",\r\n                        \"bundleItems\": [\r\n                            {\r\n                                \"equipmentExternalId\": \"PRODE-DD937-98EEA-B9E7A-8A2F3-FF9A4-0E716\",\r\n                                \"billingMethodExternalId\": \"PBM5E-2AAD6-65E15-BF81D-32D4F-230CB-20121\",\r\n                                \"terminalUnitPrice\": \"21.94559\",\r\n                                \"terminalPrice\": \"50.00\",\r\n                                \"features\": null\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"documents\": [],\r\n    \"businessEntity\": null,\r\n    \"ownershipEntity\": null,    \r\n    \"customFields\": [\r\n        {\r\n            \"customFieldCode\": \"FUNDING_MID\",\r\n            \"customFieldValue\": \"680000040008735\"\r\n        },\r\n        {\r\n            \"customFieldCode\": \"SUBGROUP4_MID\",\r\n            \"customFieldValue\": \"680000040008736\"\r\n        },\r\n        {\r\n            \"customFieldCode\": \"OMPCR_814_testtesttest\",\r\n            \"customFieldValue\": null\r\n        }\r\n    ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/new-outlet",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"new-outlet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8_NewOutletOrderByOrderIdGet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c4a93422-42f5-4e68-9b63-b6d77e87824e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Body matches string: agentBankCode\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"agentBankCode\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "25dce4dd-f1df-4e56-a739-844bc3a00f86",
+								"exec": [
+									"pm.globals.set(\"url\", \"https://qa.api.firstdata.com/\");",
+									"pm.globals.set(\"base_path\", \"ipp/v2/boarding\");",
+									"pm.globals.set(\"orders_id\", \"18358955508\");",
+									"pm.globals.set(\"AppKey\", \"p7LMi7ikvAuQshRU3lIwAr5oV1kBQdmW\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}/new-outlet",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}",
+								"new-outlet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9_NewOutletOrderByOrderIdPut",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d41f7d0e-f576-4e15-8c95-994368832e65",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "AppKey",
+								"value": "{{AppKey}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"agentBankCode\": \"20000001\",\r\n    \"allianceCode\": \"FDPSP\",\r\n    \"appStatusCode\": \"O\",\r\n    \"applicationRefNum\": \"5550010333\",\r\n    \"applicationTypeCode\": \"NM\",\r\n    \"platformCode\": null,\r\n    \"salesArea\": null,\r\n    \"salesChannel\": null,\r\n    \"sellerEmailAddress\": null,\r\n    \"sellerFirstName\": null,\r\n    \"sellerId\": null,\r\n    \"sellerLastName\": null,\r\n    \"crmOpportunityId\": null,\r\n    \"linkingInternalMid\": \"8898998\",\r\n    \"parentExternalMerchantID\": \"ACCOR\",\r\n    \"contacts\": [\r\n        {\r\n            \"addressFrom\": null,\r\n            \"addressOwnshpType\": null,\r\n            \"addressTo\": null,\r\n            \"alternativePhoneNumber\": null,\r\n            \"billTo\": null,\r\n            \"city\": \"Edinburgh\",\r\n            \"contactFirstName\": \"William\",\r\n            \"contactSecondName\": null,\r\n            \"contactJobTitle\": \"Warrior\",\r\n            \"contactLastName\": \"Wallace\",\r\n            \"contactTitle\": null,\r\n            \"contactType\": \"L\",\r\n            \"countryCode\": \"826\",\r\n            \"countyCode\": null,\r\n            \"dateFrom\": null,\r\n            \"dateTo\": null,\r\n            \"emailAddress\": \"thomass@allen.com\",\r\n            \"faxNumber\": null,\r\n            \"flatName\": null,\r\n            \"homeTelephoneNumber\": null,\r\n            \"houseName\": null,\r\n            \"houseNumber\": null,\r\n            \"leaseExpire\": null,\r\n            \"locality\": null,\r\n            \"premisesRentedFlag\": null,\r\n            \"rentedSince\": null,\r\n            \"shipTo\": null,\r\n            \"stateCode\": null,\r\n            \"statusCode\": \"A\",\r\n            \"streetLine1\": \"Stirling Road\",\r\n            \"streetLine2\": null,\r\n            \"streetLine3\": null,\r\n            \"telephoneExtension\": null,\r\n            \"telephoneNumber\": \"009876543219\",\r\n            \"webAddress\": null,\r\n            \"zipCode\": \"L67UN\"\r\n        },\r\n        {\r\n            \"addressFrom\": null,\r\n            \"addressOwnshpType\": null,\r\n            \"addressTo\": null,\r\n            \"alternativePhoneNumber\": null,\r\n            \"billTo\": null,\r\n            \"city\": \"Aberdeen\",\r\n            \"contactFirstName\": \"Walter\",\r\n            \"contactSecondName\": null,\r\n            \"contactJobTitle\": \"Writer\",\r\n            \"contactLastName\": \"Scott\",\r\n            \"contactTitle\": null,\r\n            \"contactType\": \"B\",\r\n            \"countryCode\": \"826\",\r\n            \"countyCode\": null,\r\n            \"dateFrom\": null,\r\n            \"dateTo\": null,\r\n            \"emailAddress\": null,\r\n            \"faxNumber\": null,\r\n            \"flatName\": null,\r\n            \"homeTelephoneNumber\": null,\r\n            \"houseName\": null,\r\n            \"houseNumber\": null,\r\n            \"leaseExpire\": null,\r\n            \"locality\": null,\r\n            \"premisesRentedFlag\": null,\r\n            \"rentedSince\": null,\r\n            \"shipTo\": null,\r\n            \"stateCode\": null,\r\n            \"statusCode\": \"A\",\r\n            \"streetLine1\": \"Scotland Street\",\r\n            \"streetLine2\": null,\r\n            \"streetLine3\": null,\r\n            \"telephoneExtension\": null,\r\n            \"telephoneNumber\": \"00944444419\",\r\n            \"webAddress\": null,\r\n            \"zipCode\": \"L67UN\"\r\n        }\r\n    ],    \r\n    \"outlets\": [\r\n        {\r\n            \"receiptAddressLine1\": null,\r\n            \"paperStmtReqFlag\": null,\r\n            \"receiptName\": null,\r\n            \"thirdPartyNames\": null,\r\n            \"visaMpQualFlagInd\": null,\r\n            \"welcomePack\": null,\r\n            \"autoRenewalFlag\": true,\r\n            \"avgGoodsReturnedPerc\": null,\r\n            \"outletLanguage\": null,\r\n            \"annualCardTurnover\": \"584000\",\r\n            \"annualTurnover\": null,\r\n            \"clientRegion\": null,\r\n            \"clientRegionSysId\": null,\r\n            \"currCode\": \"GBP\",\r\n            \"businessType\": null,\r\n            \"delivery0DaysPerc\": null,\r\n            \"delivery15To30DaysPerc\": null,\r\n            \"delivery1To7DaysPerc\": null,\r\n            \"delivery8To14DaysPerc\": null,\r\n            \"deliveryOver30DaysPerc\": null,\r\n            \"depositFlag\": null,\r\n            \"estAvgTicket\": null,\r\n            \"externalMerchantId\": null,\r\n            \"mccIso\": \"5192\",\r\n            \"outletWebsite\": \"http://www.heritage.com\",\r\n            \"prodServSold\": null,\r\n            \"recurringFlag\": null,\r\n            \"salesFtfPerc\": null,\r\n            \"salesInternetPerc\": null,\r\n            \"salesMotoPerc\": null,\r\n            \"tradeName\": \"BriannaFraser\",\r\n            \"contacts\": [\r\n                {\r\n                    \"addressFrom\": \"2007-03-17\",\r\n                    \"addressOwnshpType\": \"R\",\r\n                    \"addressTo\": \"2018-12-17\",\r\n                    \"alternativePhoneNumber\": \"0003564856\",\r\n                    \"billTo\": \"Dougal McCintosh\",\r\n                    \"city\": \"Inverness\",\r\n                    \"contactFirstName\": \"Claire\",\r\n                    \"contactSecondName\": \"Randall\",\r\n                    \"contactJobTitle\": \"Doctor\",\r\n                    \"contactLastName\": \"Fraser\",\r\n                    \"contactTitle\": \"Mrs.\",\r\n                    \"contactType\": \"OT\",\r\n                    \"countryCode\": \"826\",\r\n                    \"county\": \"Scotland\",\r\n                    \"dateFrom\": \"2019-01-02T07:54:34.255Z\",\r\n                    \"dateTo\": \"2022-12-31T07:54:34.255Z\",\r\n                    \"emailAddress\": \"claire.fraser@sassenach.com\",\r\n                    \"faxNumber\": \"0056655644566\",\r\n                    \"flatName\": \"Brianna\",\r\n                    \"homeTelephoneNumber\": \"0436214835\",\r\n                    \"houseName\": \"Ridge\",\r\n                    \"houseNumber\": \"32\",\r\n                    \"leaseExpire\": \"2019-03-31\",\r\n                    \"locality\": \"Culloden\",\r\n                    \"premisesRentedFlag\": true,\r\n                    \"rentedSince\": \"2019-01-03\",\r\n                    \"shipTo\": \"William Wallace\",\r\n                    \"stateCode\": \"GB\",\r\n                    \"statusCode\": \"A\",\r\n                    \"streetLine1\": \"Alley 2\",\r\n                    \"streetLine2\": \"Ailea\",\r\n                    \"streetLine3\": null,\r\n                    \"telephoneExtension\": \"089\",\r\n                    \"telephoneNumber\": \"0065522332654\",\r\n                    \"webAddress\": \"http://www.sassenach.co.uk\",\r\n                    \"zipCode\": \"TW62GW\"\r\n                }\r\n            ],\r\n            \"equipmentOffer\": {\r\n                \"equipmentOfferingExternalId\": \"EQO5F-FE971-46B22-A35A0-4FF2C-A1936-E988F\",\r\n                \"equipmentsBundle\": [\r\n                    {\r\n                        \"equipmentBundleExternalId\": \"EQB46-12868-91852-66F6E-AEA69-40D7D-6C845\",\r\n                        \"bundleItems\": [\r\n                            {\r\n                                \"equipmentExternalId\": \"PROB9-D635E-69776-9D286-A1090-9E0E1-A37B1\",\r\n                                \"billingMethodExternalId\": \"PBM5E-2AAD6-65E15-BF81D-32D4F-230CB-20121\",\r\n                                \"terminalUnitPrice\": \"21.94559\",\r\n                                \"terminalPrice\": \"50.00\",\r\n                                \"features\": null\r\n                            }\r\n                        ]\r\n                    },\r\n                    {\r\n                        \"equipmentBundleExternalId\": \"EBIB9-4663B-97276-5638C-69E1F-2DB92-915F4\",\r\n                        \"bundleItems\": [\r\n                            {\r\n                                \"equipmentExternalId\": \"PRODE-DD937-98EEA-B9E7A-8A2F3-FF9A4-0E716\",\r\n                                \"billingMethodExternalId\": \"PBM5E-2AAD6-65E15-BF81D-32D4F-230CB-20121\",\r\n                                \"terminalUnitPrice\": \"21.94559\",\r\n                                \"terminalPrice\": \"50.00\",\r\n                                \"features\": null\r\n                            }\r\n                        ]\r\n                    }\r\n                ]\r\n            }\r\n        }\r\n    ],\r\n    \"documents\": [],\r\n    \"businessEntity\": null,\r\n    \"ownershipEntity\": null,    \r\n    \"customFields\": [\r\n        {\r\n            \"customFieldCode\": \"FUNDING_MID\",\r\n            \"customFieldValue\": \"680000040008735\"\r\n        },\r\n        {\r\n            \"customFieldCode\": \"SUBGROUP4_MID\",\r\n            \"customFieldValue\": \"680000040008736\"\r\n        },\r\n        {\r\n            \"customFieldCode\": \"OMPCR_814_testtesttest\",\r\n            \"customFieldValue\": null\r\n        }\r\n    ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://qa.api.firstdata.com/ipp/v2/boarding/orders/{{orders_id}}/new-outlet",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"api",
+								"firstdata",
+								"com"
+							],
+							"path": [
+								"ipp",
+								"v2",
+								"boarding",
+								"orders",
+								"{{orders_id}}",
+								"new-outlet"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "142fc356-9a47-47f4-8c26-c004dd97d8ed",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "af69edf8-0a2c-42fd-aa2f-418a2a065598",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "17650cac-2d30-4ae9-af10-cdbf6e66d282",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "235ece91-03b1-4754-8670-0373af8ddfc9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
