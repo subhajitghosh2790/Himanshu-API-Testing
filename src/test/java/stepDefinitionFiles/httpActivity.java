@@ -23,10 +23,15 @@ public class httpActivity extends HTTP_Methods {
         responseCode(respCode);
     }
 
-    @When("^the verify the Response schema from$")
-    public void the_verify_the_Response_schema_from(String arg1) throws Throwable {
-        requestAssertion(arg1);
+    
+    @Then("^ignore attribute \"([^\"]*)\" and verify the Response schema$")
+    public void ignore_attribute_and_verify_the_Response_schema(String ignoreAttribute, String schema) throws Throwable {
+    	responseAssertion(ignoreAttribute,schema);
     }
 
+    @Given("^the request payload is$")
+    public void the_request_payload_is(String arg1) throws Throwable {
+    	newReqPL(arg1);
+    }
 }
 

@@ -51,9 +51,9 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
+                39,
+                4,
                 2,
-                1,
-                1,
                 0,
                 0
             ],
@@ -94,7 +94,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 4) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 45) / 100;
                         return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
                     }
                 }
@@ -107,8 +107,8 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                0,
-                1
+                8,
+                4
             ],
             backgroundColor: [
                 "#00B000",
@@ -144,7 +144,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 1) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 12) / 100;
                         return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
                     }
                 }
@@ -157,8 +157,8 @@ $(document).ready(function() {
     var chartData = {
         datasets: [{
             data: [
-                   0,
-                   1
+                   1,
+                   4
                ],
                backgroundColor: [
                 "#00B000",
@@ -191,7 +191,7 @@ $(document).ready(function() {
                         var allData = data.datasets[tooltipItem.datasetIndex].data;
                         var tooltipLabel = data.labels[tooltipItem.index];
                         var tooltipData = allData[tooltipItem.index];
-                        var tooltipPercentage = Math.round(10000 * tooltipData / 1) / 100;
+                        var tooltipPercentage = Math.round(10000 * tooltipData / 5) / 100;
                         return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
                     }
                 }
@@ -233,7 +233,7 @@ $(document).ready(function() {
           <tr class="info">
             <td>CucumberWebGui</td>
                           <td>1</td>
-                        <td>12 Sep 2020, 20:58</td>
+                        <td>13 Sep 2020, 21:12</td>
           </tr>
         </tbody>
       </table>
@@ -325,48 +325,108 @@ $(document).ready(function() {
           <tr>
         <td class="tagname"><a href="TC01-GET-All-Employees-feature.html">TC01 (GET) All Employees</a></td>
         
-        <td >0</td>
+        <td  class="passed"    >2</td>
         <td  class="failed"    >1</td>
-        <td class="total">1</td>
-        <td      class="passed"    >2</td>
+        <td class="total">3</td>
+        <td      class="passed"    >9</td>
+        <td      class="failed"    >1</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">10</td>
+        <td class="duration" data-value="10285438288">10s 285ms</td>
+        <td class="failed">Failed</td>
+      </tr>
+          <tr>
+        <td class="tagname"><a href="TC02-POST-All-Employees-feature.html">TC02 (POST) All Employees</a></td>
+        
+        <td  class="passed"    >2</td>
+        <td  class="failed"    >1</td>
+        <td class="total">3</td>
+        <td      class="passed"    >12</td>
+        <td      class="failed"    >1</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">13</td>
+        <td class="duration" data-value="4438463761">4s 438ms</td>
+        <td class="failed">Failed</td>
+      </tr>
+          <tr>
+        <td class="tagname"><a href="TC03-GET-Employee-2982-feature.html">TC03 (GET) Employee 2982</a></td>
+        
+        <td  class="passed"    >1</td>
+        <td  class="failed"    >1</td>
+        <td class="total">2</td>
+        <td      class="passed"    >6</td>
         <td      class="failed"    >1</td>
         <td     class="skipped"   >1</td>
         <td >0</td>
         <td >0</td>
-        <td class="total">4</td>
-        <td class="duration" data-value="5640176042">5s 640ms</td>
+        <td class="total">8</td>
+        <td class="duration" data-value="2809802010">2s 809ms</td>
+        <td class="failed">Failed</td>
+      </tr>
+          <tr>
+        <td class="tagname"><a href="TC04-PUT-Employee-2982-feature.html">TC04 (PUT) Employee 2982</a></td>
+        
+        <td  class="passed"    >2</td>
+        <td >0</td>
+        <td class="total">2</td>
+        <td      class="passed"    >7</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">7</td>
+        <td class="duration" data-value="1655695035">1s 655ms</td>
+        <td class="passed">Passed</td>
+      </tr>
+          <tr>
+        <td class="tagname"><a href="TC05-DELETE-Employee-2982-feature.html">TC05 (DELETE) Employee 2982</a></td>
+        
+        <td  class="passed"    >1</td>
+        <td  class="failed"    >1</td>
+        <td class="total">2</td>
+        <td      class="passed"    >5</td>
+        <td      class="failed"    >1</td>
+        <td     class="skipped"   >1</td>
+        <td >0</td>
+        <td >0</td>
+        <td class="total">7</td>
+        <td class="duration" data-value="1735951006">1s 735ms</td>
         <td class="failed">Failed</td>
       </tr>
       </tbody>
 
   <tfoot class="total">
     <tr>
-      <td>1</td>
-            <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
+      <td>5</td>
+            <td>8</td>
       <td>4</td>
-      <td class="duration">5s 640ms</td>
+      <td>12</td>
+      <td>39</td>
+      <td>4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>45</td>
+      <td class="duration">20s 925ms</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
-            <td>0.00%</td>
-      <td>100.00%</td>
+            <td>66.67%</td>
+      <td>33.33%</td>
       <td></td>
-      <td>50.00%</td>
-      <td>25.00%</td>
-      <td>25.00%</td>
+      <td>86.67%</td>
+      <td>8.89%</td>
+      <td>4.44%</td>
       <td>0.00%</td>
       <td>0.00%</td>
       <td></td>
       <td></td>
-      <td>100.00%</td>
+      <td>33.33%</td>
     </tr>
   </tfoot>
 </table>
