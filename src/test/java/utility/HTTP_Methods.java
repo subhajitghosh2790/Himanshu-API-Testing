@@ -37,9 +37,7 @@ public class HTTP_Methods {
 	public static String reqPL;
 	public static String reqPLq;
 
-	
-	
-	
+	static PropertiesConfigure p = new PropertiesConfigure();
 
 	public void printMsg() {
 		String valueFromMaven = System.getProperty("propertyName");
@@ -47,7 +45,8 @@ public class HTTP_Methods {
 	}
 
 	public void baseURL(final String url) {
-		RestAssured.baseURI = url;
+		System.out.println("url is -->" + p.readprop(url));
+		RestAssured.baseURI = p.readprop(url);
 		httpRequest = RestAssured.given();
 	}
 

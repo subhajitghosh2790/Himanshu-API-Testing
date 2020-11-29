@@ -132,6 +132,21 @@
     </dependencies>
 
 
+    <profiles>
+        <profile>
+            <id>qa</id>
+            <properties>
+                <prop.file>./src/test/java/environmentVariables/qa_config.properties</prop.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>int</id>
+            <properties>
+                <prop.file>./src/test/java/environmentVariables/int_config.properties</prop.file>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
@@ -156,6 +171,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <prop.file>${prop.file}</prop.file>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

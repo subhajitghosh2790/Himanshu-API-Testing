@@ -1,4 +1,5 @@
-stepDefinitionFiles/httpActivity.class
-testRunnerFile/TestRunner.class
-utility/HTTP_Methods.class
-utility/PropertyBasedIgnoreFilter.class
+stepDefinitionFiles\httpActivity.class
+utility\PropertyBasedIgnoreFilter.class
+utility\HTTP_Methods.class
+utility\PropertiesConfigure.class
+testRunnerFile\TestRunner.class

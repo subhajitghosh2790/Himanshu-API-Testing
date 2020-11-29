@@ -10,7 +10,7 @@ import cucumber.api.testng.CucumberFeatureWrapper;
 import cucumber.api.testng.TestNGCucumberRunner;
 
 @CucumberOptions(features = "./src/test/java/featureFiles", glue = { "stepDefinitionFiles" }, tags = {
-        "@AllEmployees" }, format = { "pretty", "html:./target/cucumber-reports/cucumber-pretty",
+        "@testing" }, format = { "pretty", "html:./target/cucumber-reports/cucumber-pretty",
                 "json:./target/cucumber-reports/CucumberTestReport.json",
                 "rerun:./target/cucumber-reports/rerun.txt" }, plugin = {
                         "html:target/cucumber-reports/cucumber-html-report",

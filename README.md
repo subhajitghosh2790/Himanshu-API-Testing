@@ -1,9 +1,7 @@
-# Rest-Assured-API-Testing
+To run your project use command in terminal -->
 
+mvn clean install -Pqa
 
-## Read Before execution
+Using "-Pqa" will pick set the profile of execution to "qa_config.properties" file.
 
-
-#### maven goal to generate report must be ‘clean install’ or if you are running from terminal just type ‘mvn clean install’
-
-#### To view the report go to folder 'target' then to --> 'cucumber report html' and then open -> 'feature.html'
+Similarly for "int" use command "-Pint"
